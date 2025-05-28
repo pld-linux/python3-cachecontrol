@@ -1,12 +1,12 @@
 Summary:	httplib2 caching for requests
 Name:		python3-cachecontrol
-Version:	0.14.2
+Version:	0.14.3
 Release:	1
 License:	Apache v2
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/cachecontrol/
 Source0:	https://files.pythonhosted.org/packages/source/c/cachecontrol/cachecontrol-%{version}.tar.gz
-# Source0-md5:	1c7bd3fcebd1877270fb662c1ede2f75
+# Source0-md5:	13bb06e799622ac80ec3af936ed75de3
 URL:		https://pypi.org/project/CacheControl/
 BuildRequires:	python3 >= 1:3.8
 BuildRequires:	python3-build
