@@ -1,27 +1,25 @@
-# TODO: package cherrypy, finish tests
 #
 # Conditional build:
-%bcond_with	tests	# unit tests
+%bcond_with	tests	# unit tests (not in sdist)
 
 Summary:	httplib2 caching for requests
 Summary(pl.UTF-8):	Pamięc podręczna httplib2 dla requests
 Name:		python3-cachecontrol
-Version:	0.14.3
+Version:	0.14.4
 Release:	1
-License:	Apache v2
+License:	Apache v2.0
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/cachecontrol/
 Source0:	https://files.pythonhosted.org/packages/source/c/cachecontrol/cachecontrol-%{version}.tar.gz
-# Source0-md5:	13bb06e799622ac80ec3af936ed75de3
+# Source0-md5:	37d8306a667facb1adc47a159a3733ce
 URL:		https://pypi.org/project/CacheControl/
-BuildRequires:	python3 >= 1:3.9
+BuildRequires:	python3 >= 1:3.10
 BuildRequires:	python3-build
-BuildRequires:	python3-flit_core >= 3.11
-BuildRequires:	python3-flit_core < 4
 BuildRequires:	python3-installer
 BuildRequires:	python3-modules >= 1:3.9
+BuildRequires:	python3-uv-build >= 0.9.6
+BuildRequires:	python3-uv-build < 0.10
 %if %{with tests}
-BuildRequires:	python3-cherrypy
 BuildRequires:	python3-filelock >= 3.8.0
 BuildRequires:	python3-msgpack >= 0.5.2
 BuildRequires:	python3-msgpack < 2
@@ -30,7 +28,7 @@ BuildRequires:	python3-pytest
 %endif
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 2.044
-Requires:	python3-modules >= 1:3.9
+Requires:	python3-modules >= 1:3.10
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -71,7 +69,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README.rst
+%doc LICENSE.txt README.rst
 %attr(755,root,root) %{_bindir}/doesitcache
 %dir %{py3_sitescriptdir}/cachecontrol
 %{py3_sitescriptdir}/cachecontrol/*.py
